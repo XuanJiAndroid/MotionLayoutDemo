@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@id/sv_list"
+motion:onTouchUp="stop"
+            />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <ConstraintOverride
+            android:id="@id/cl_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:background="@android:color/transparent"
+            motion:motionProgress="0" />
+        <Constraint
+            android:id="@+id/iv_top"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:background="@android:color/holo_green_light"
+            android:src="@mipmap/ic_top_bg"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/cl_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:background="@android:color/transparent"
+            motion:motionProgress="1"
+            >
+            <CustomAttribute
+                motion:customColorValue="@android:color/transparent"
+                motion:attributeName="backgroundColor"/>
+
+        </Constraint>
+        <Constraint
+            android:id="@+id/sv_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/iv_top" />
+
+        <Constraint
+            android:id="@+id/tv_title_back"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:text="返回按钮" >
+            <CustomAttribute
+                motion:customColorValue="@android:color/transparent"
+                motion:attributeName="backgroundColor"/>
+
+            <CustomAttribute
+                motion:customColorValue="@color/black"
+                motion:attributeName="textColor"/>
+
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <ConstraintOverride
+            android:id="@id/cl_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:background="@android:color/transparent"
+            motion:motionProgress="1" />
+
+        <Constraint
+            android:id="@+id/iv_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@android:color/holo_green_light"
+            android:src="@mipmap/ic_top_bg"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/sv_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/cl_title" />
+        <Constraint
+            android:id="@+id/cl_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:background="@android:color/transparent"
+            >
+            <CustomAttribute
+                motion:customColorValue="@color/white"
+                motion:attributeName="backgroundColor"/>
+
+        </Constraint>
+
+    </ConstraintSet>
+</MotionScene>
